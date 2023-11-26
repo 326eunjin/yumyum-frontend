@@ -1,0 +1,339 @@
+
+#background {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FCFCF4;
+    overflow: hidden; 
+}
+.content { 
+	width:100vw;
+	height:844px;
+	position:absolute;
+    overflow:hidden;
+}
+.e284_142 { 
+	background-color:rgba(252.00000017881393, 252.00000017881393, 244.0000006556511, 1);
+	width:390px;
+	height:844px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+#bookbutton { 
+	background-color:rgba(255, 255, 255, 1);
+	width:80%;
+	height:55px;
+	position:absolute;
+	left:10%;
+	top:452px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+    border:2px solid rgba(0, 0, 0, 1);
+    font-family:Inter;
+	text-align:center;
+	font-size:25px;
+	letter-spacing:0;
+}
+
+.e284_144 { 
+	color:rgba(0, 0, 0, 1);
+	width:100px;
+	height:30px;
+	position:absolute;
+	left:145px;
+	top:464px;
+	
+}
+#alertbutton { 
+	background-color:rgba(255, 255, 255, 1);
+	width:80%;
+	height:55px;
+	position:absolute;
+	left:10%;
+	top:374px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+    border:2px solid rgba(0, 0, 0, 1);
+    font-family:Inter;
+	text-align:center;
+	font-size:25px;
+	letter-spacing:0;
+}
+
+.e284_146 { 
+	color:rgba(0, 0, 0, 1);
+	width:69px;
+	height:30px;
+	position:absolute;
+	left:161px;
+	top:387px;
+	font-family:Inter;
+	text-align:center;
+	font-size:25px;
+	letter-spacing:0;
+}
+
+
+.e284_148 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:80%;
+	height:220px;
+	position:absolute;
+	left:10%;
+	top:130px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+    border:2px solid rgba(0, 0, 0, 1);
+}
+
+.e284_149 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:100%;
+	height:55px;
+	position:absolute;
+	left:0%;
+	top:0%;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	margin-bottom: 10px; 
+	margin-top: 10px; 
+	
+}
+
+.morebutton { 
+	background-color:rgba(255, 255, 255, 1);
+	width:90%;
+	height:27px;
+	position:absolute;
+	left:5%;
+	bottom:5%;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+    border:2px solid rgba(0, 0, 0, 1);
+}
+
+.e284_151 { 
+	color:rgba(0, 0, 0, 1);
+	width:42px;
+	height:18px;
+	position:absolute;
+	left:174px;
+	top:317px;
+	font-family:Inter;
+	text-align:center;
+	font-size:15px;
+	letter-spacing:0;
+}
+.e284_152 { 
+	color:rgba(0, 0, 0, 1);
+	width:69px;
+	height:30px;
+	position:absolute;
+	left:161px;
+	top:762px;
+	font-family:Inter;
+	text-align:center;
+	font-size:25px;
+	letter-spacing:0;
+}
+.e284_153 { 
+	color:rgba(0, 0, 0, 1);
+	width:130px;
+	height:30px;
+	position:absolute;
+	left:130px;
+	top:142px;
+	font-family:Inter;
+	text-align:center;
+	font-size:25px;
+	letter-spacing:0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.e284_154 { 
+	color:rgba(0, 0, 0, 1);
+	width:190px;
+	height:24px;
+	position:absolute;
+	left:96px;
+	top:200px;
+	font-family:Inter;
+	text-align:center;
+	font-size:20px;
+	letter-spacing:0;
+}
+.loginbutton { 
+	background-color:rgba(242.00000077486038, 156.00000590085983, 150.0000062584877, 1);
+	width:80%;
+	height:55px;
+	position:absolute;
+	left:10%;
+	top:663px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+    border:2px solid rgba(0, 0, 0, 1);
+	font-family:Inter;
+	text-align:center;
+	font-size:20px;
+	letter-spacing:0;
+}
+
+.e284_156 { 
+	color:rgba(0, 0, 0, 1);
+	width:69px;
+	height:30px;
+	position:absolute;
+	left:161px;
+	top:676px;
+	font-family:Inter;
+	text-align:center;
+	font-size:25px;
+	letter-spacing:0;
+}
+.e284_157 { 
+	color:rgba(0, 0, 0, 1);
+	width:209px;
+	height:24px;
+	position:absolute;
+	left:96px;
+	top:235px;
+	font-family:Inter;
+	text-align:center;
+	font-size:20px;
+	letter-spacing:0;
+}
+.e284_158 { 
+	width:20px;
+	height:20px;
+	position:absolute;
+	left:65px;
+	top:235px;
+	background-image:url(images/rectangle_61.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.e284_159 { 
+	width:20px;
+	height:20px;
+	position:absolute;
+	left:65px;
+	top:271px;
+	background-image:url(images/rectangle_80.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.e284_160 { 
+	width:20px;
+	height:20px;
+	position:absolute;
+	left:65px;
+	top:200px;
+	background-image:url(images/rectangle_79.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.e284_161 { 
+	color:rgba(0, 0, 0, 1);
+	width:190px;
+	height:24px;
+	position:absolute;
+	left:96px;
+	top:270px;
+	font-family:Inter;
+	text-align:center;
+	font-size:20px;
+	letter-spacing:0;
+}
+
+
+.backhome { 
+	background-color:rgba(255, 255, 255, 1);
+	width:80%;
+	height:55px;
+	position:absolute;
+	left:10%;
+	top:749px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+    border:2px solid rgba(0, 0, 0, 1);
+	font-family:Inter;
+	text-align:center;
+	font-size:20px;
+	letter-spacing:0;
+}
+
+#top{
+	width: 300px;
+	height: 60px;
+	top:40px;
+	right : 10%;
+	position : absolute;
+}
+
+.loginAlert { 
+	color:rgba(0, 0, 0, 1);
+	width:210px;
+	height:51px;
+	position:absolute;
+	left:0%;
+	top:15px;
+	font-family:Inter;
+	text-align:right;
+	font-size:25px;
+	letter-spacing:0;
+}
+
+.imagecontainer { 
+	border-radius:500px;
+	background-color:rgba(255, 255, 255, 1);
+	width:60px;
+	height:60px;
+	position:absolute;
+	right : 0%;
+	top : 0px;
+    border:3px solid rgba(0, 0, 0, 1);
+}
+
+#image{
+	width: 50%;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.store-container {
+	display: flex;
+	flex-direction: column; /* 세로로 쌓이도록 설정 */ 
+	position: absolute;
+	width :90%;
+	left : 5%;
+	top : 30%;
+	margin-top: 10px; /* 각 요소 사이의 간격을 조절 */
+
+  }
+  
+.store-text {
+	margin-bottom: 10px; /* 각 요소 사이의 간격을 조절 */
+	margin-left: 10px;
+	text-align: left;
+
+  }
