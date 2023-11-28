@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './loading.css';
-import logo from "./logo.png";
+import loadinglogo from "./loadinglogo.png";
 
 const LoadingPage = () => {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ const LoadingPage = () => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       // Redirect to the login page after 5 seconds
-      navigate('/login');
+      navigate('/home');
     }, 5000);
 
     return () => clearTimeout(timeoutId); // Clear the timeout on unmount (cleanup)
@@ -17,9 +17,7 @@ const LoadingPage = () => {
 
   return (
     <div id="background">
-      <div>
-        <img id="logo" src={logo} alt="Logo" />
-      </div>
+        <img id="loadinglogo" src={loadinglogo} alt="Logo" />
     </div>
   );
 };

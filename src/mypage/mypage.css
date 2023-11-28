@@ -29,7 +29,7 @@
 	width:80%;
 	height:55px;
 	position:absolute;
-	left:10%;
+	left:7.5%;
 	top:452px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -38,7 +38,7 @@
     border:2px solid rgba(0, 0, 0, 1);
     font-family:Inter;
 	text-align:center;
-	font-size:25px;
+	font-size:20px;
 	letter-spacing:0;
 }
 
@@ -56,7 +56,7 @@
 	width:80%;
 	height:55px;
 	position:absolute;
-	left:10%;
+	left:7.5%;
 	top:374px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -65,7 +65,7 @@
     border:2px solid rgba(0, 0, 0, 1);
     font-family:Inter;
 	text-align:center;
-	font-size:25px;
+	font-size:20px;
 	letter-spacing:0;
 }
 
@@ -88,7 +88,7 @@
 	width:80%;
 	height:220px;
 	position:absolute;
-	left:10%;
+	left:7.5%;
 	top:130px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -123,6 +123,7 @@
 	border-bottom-left-radius:10px;
 	border-bottom-right-radius:10px;
     border:2px solid rgba(0, 0, 0, 1);
+	font-size: 13px;
 }
 
 .e284_151 { 
@@ -173,7 +174,7 @@
 	top:200px;
 	font-family:Inter;
 	text-align:center;
-	font-size:20px;
+	font-size:18px;
 	letter-spacing:0;
 }
 .loginbutton { 
@@ -181,7 +182,7 @@
 	width:80%;
 	height:55px;
 	position:absolute;
-	left:10%;
+	left: 7.5%;
 	top:663px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -267,7 +268,7 @@
 	width:80%;
 	height:55px;
 	position:absolute;
-	left:10%;
+	left:7.5%;
 	top:749px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -284,7 +285,7 @@
 	width: 300px;
 	height: 60px;
 	top:40px;
-	right : 10%;
+	right : 12.5%;
 	position : absolute;
 }
 
@@ -335,5 +336,6 @@
 	margin-bottom: 10px; /* 각 요소 사이의 간격을 조절 */
 	margin-left: 10px;
 	text-align: left;
+	font-size: 17px;
 
   }

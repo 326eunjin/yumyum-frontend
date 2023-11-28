@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import logo from "./logo.png";
 import "./login.css"
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
+  const navigate = useNavigate();
 
   const [id, setid] = useState("")
   const [pw, setpw] = useState("")
@@ -23,7 +25,10 @@ function LoginPage() {
       console.log("id : " + id);
       console.log("pw : " + pw);
     }
-    
+  }
+
+  function movesignup(){
+    navigate('/signup');
   }
 
   return (
@@ -31,18 +36,18 @@ function LoginPage() {
     <div className="content">
       <img className="logo" src={logo} alt="Logo" />
       <div className="loginform">
-        <div className="phonebox">
+        <div id="phonebox">
           <span className="phone">휴대번호</span>
           <input className="inputphone" type="text" value={id} onChange={(e) => setid(e.target.value)} />
         </div>
-        <div className="pwbox">
+        <div id="pwbox">
           <span className="pw">비밀번호</span>
           <input className="inputpw" type="password" value={pw} onChange={(e) => setpw(e.target.value)} />
         </div>
         <button className="login" onClick={loginFunc} >로그인</button>
         <div className="extrabutton">
-          <button className="signupbutton">회원가입</button>
-          <button className="findbutton">ID / PW 찾기</button>
+          <button id="signupbutton" onClick={movesignup}>회원가입</button>
+          <button id="findbutton">ID / PW 찾기</button>
         </div>
       </div>
     </div>

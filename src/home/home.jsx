@@ -8,7 +8,7 @@ const HomePage = () => {
         <div className="e294_42">
             <div className="e403_16">
                 <div className="searchbar">
-                <input id="searchkey" type="text" placeholder="검색할 음식을 입력해주십시오" />
+                    <input id="searchkey" type="text" placeholder="검색할 음식을 입력해주십시오" />
                 </div>
                 <div className="e403_14">
                 <div className="e403_7">

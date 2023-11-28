@@ -10,8 +10,9 @@
     overflow: hidden; 
 }
 
-#logo {
+#loadinglogo {
     width: 60%;
     height: auto;
     display: block;
+    left : 20% ;
 }

@@ -1,4 +1,4 @@
-#background {
+.background {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-#content { 
+.content { 
 	width:100%;
 	height:600px;
 	position:absolute;
@@ -17,14 +17,14 @@
 	width:211px;
 	height:65px;
 	position:absolute;
-	top:0px;
+	top:40px;
 	background-image:url(signuplogo.png);
 	background-repeat:no-repeat;
 	background-size:cover;
     left: 50%;
     transform: translateX(-50%);
 }
-#multibox { 
+.multibox { 
 	width:75%;
 	height:396px;
 	position:absolute;
@@ -32,28 +32,28 @@
     transform: translateX(-50%);
 	bottom :0px;
 }
-#inputbox { 
+.inputbox { 
 	width:100%;
 	height:343px;
 	position:absolute;
 	left:0px;
 	top:0px;
 }
-#phonecert { 
+.phonecert { 
 	width:100%;
 	height:137px;
 	position:absolute;
 	left:0px;
 	top:0px;
 }
-#sendcert { 
+.sendcert { 
 	width:100%;
 	height:62px;
 	position:absolute;
 	left:0px;
 	top:0px;
 }
-#phonebox { 
+.phonebox { 
 	background-color:rgba(255, 255, 255, 1);
 	width:100%;
 	height:62px;
@@ -79,7 +79,7 @@
 	font-size:18px;
 	letter-spacing:0;
 }
-#sendbutton { 
+.sendbutton { 
 	background-color:rgba(255, 255, 255, 1);
 	width:43px;
 	height:35px;
@@ -105,14 +105,15 @@
 	font-size:12px;
 	letter-spacing:0;
 }
-#checkcert { 
+.checkcert { 
 	width:100%;
 	height:61px;
 	position:absolute;
 	left:0px;
 	top:76px;
 }
-#certbox { 
+
+.certbox { 
 	background-color:rgba(255, 255, 255, 1);
 	width:100%;
 	height:61px;
@@ -138,7 +139,7 @@
 	font-size:18px;
 	letter-spacing:0;
 }
-#checkbutton { 
+.checkbutton { 
 	background-color:rgba(255, 255, 255, 1);
 	width:43px;
 	height:35px;
@@ -164,14 +165,14 @@
 	font-size:12px;
 	letter-spacing:0;
 }
-#pwcert { 
+.pwcert { 
 	width:100%;
 	height:138px;
 	position:absolute;
 	left:0px;
 	top:152px;
 }
-#pwbox { 
+.pwbox { 
 	background-color:rgba(255, 255, 255, 1);
 	width:100%;
 	height:63px;
@@ -198,14 +199,14 @@
 	letter-spacing:0;
 }
 
-#checkpw { 
+.checkpw { 
 	width:100%;
 	height:61px;
 	position:absolute;
 	left:0px;
 	top:77px;
 }
-#repwbox { 
+.repwbox { 
 	background-color:rgba(255, 255, 255, 1);
 	width:100%;
 	height:61px;
@@ -231,7 +232,8 @@
 	font-size:18px;
 	letter-spacing:0;
 }
-#pwcheckbutton { 
+
+.pwcheckbutton { 
 	background-color:rgba(255, 255, 255, 1);
 	width:43px;
 	height:35px;
@@ -257,7 +259,7 @@
 	font-size:12px;
 	letter-spacing:0;
 }
-#signupbutton { 
+.signupbutton { 
 	background-color:rgba(255, 255, 255, 1);
 	width:100%;
 	height:38px;
@@ -284,7 +286,7 @@
 	font-size:15px;
 	letter-spacing:0;
 }
-#backbutton { 
+.backbutton { 
 	background-color:rgba(255, 255, 255, 1);
 	width:100%;
 	height:38px;
