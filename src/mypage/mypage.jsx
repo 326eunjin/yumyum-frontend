@@ -15,12 +15,12 @@ const MyPage = () => {
     }
 
     return (
-        <div id = "background">
-            <div className="content">
-                <div id="top">
+        <div className = "background">
+            <div className="contentcontainer">
+                <div className="topclass">
                     <span className="loginAlert"> 로그인을 해주세요 </span>
                     <div className="imagecontainer">
-                        <mypagelogo id="image" src={mypagelogo} alt="image" />
+                        <img className="mypageimage" src={mypagelogo} alt="mypageimage" />
                     </div>
                 </div>
                 <div className="e284_148">
@@ -37,8 +37,8 @@ const MyPage = () => {
                 
                 <button id="alertbutton">알림창</button>
                 <button id="bookbutton">예약 현황</button>
-                <button className="loginbutton">로그인</button>
-                <button className="backhome" onClick={gohome}>홈으로</button>
+                <button id="mypageloginbutton">로그인</button>
+                <button id="backhome" onClick={gohome}>홈으로</button>
             </div>
         </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from "./logo.png";
+import mainlogo from "./logo.png";
 import "./login.css"
 import { useNavigate } from 'react-router-dom';
 
@@ -34,7 +34,7 @@ function LoginPage() {
   return (
   <div className = "background">
     <div className="content">
-      <img className="logo" src={logo} alt="Logo" />
+      <img className="mainlogo" src={mainlogo} alt="Logo" />
       <div className="loginform">
         <div id="phonebox">
           <span className="phone">휴대번호</span>
