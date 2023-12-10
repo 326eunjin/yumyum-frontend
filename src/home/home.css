@@ -38,20 +38,19 @@
 	padding-right: 20%;
 }
 
-.e403_14 { 
+.iconbox { 
 	width:55px;
-	height:116.0897445678711px;
 	position:absolute;
 	right : 0%;
 	top:0px;
+	display: flex;
+	flex-direction: column;
 }
-.e403_7 { 
+.searchbutton { 
 	background-color:rgba(210.00000268220901, 37.00000159442425, 25.000000409781933, 1);
 	width:55px;
 	height:53px;
-	position:absolute;
-	left:0px;
-	top:0px;
+	position:relative;
 	border-top-left-radius:15px;
 	border-top-right-radius:15px;
 	border-bottom-left-radius:15px;
@@ -69,34 +68,32 @@
 	background-repeat:no-repeat;
 	background-size:cover;
 }
-.e403_5 { 
+
+.mypagebutton { 
 	background-color:rgba(255, 255, 255, 1);
 	width:54.16666793823242px;
 	height:50.089744567871094px;
-	position:absolute;
-	left:0px;
-	top:66px;
+	position:relative;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
 	border-bottom-left-radius:10px;
 	border-bottom-right-radius:10px;
 	border:3px solid rgba(0, 0, 0, 1);
+	margin-top: 15px;
 }
 
-.e313_11 { 
-	width:44.16666793823242px;
-	height:40.089744567871094px;
+.buttonform { 
+	width:60%;
+	height:auto;
 	position:absolute;
-	left:5px;
-	top:5px;
-	background-image:url(images/rectangle_142.png);
-	background-repeat:no-repeat;
-	background-size:cover;
+	justify-self: center;
+	left : 19%;
+	top : 19%;
 }
 
 #bottombutton{
-	width : 74px;
-	height : 120px;
+	width : 80%;
+	height : auto;
 	position: absolute;
 	right : 5%;
 	bottom : 5%;
