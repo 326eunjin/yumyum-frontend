@@ -25,10 +25,10 @@ function LoginPage() {
           password,
         }
       );
-      const { access, data } = response.data;
+      const { data } = response.data;
       const accessToken = data.token.access;
 
-      if (response.status == 200) {
+      if (response.status === 200) {
         console.log("Login successful");
 
         // Store the token in local storage
