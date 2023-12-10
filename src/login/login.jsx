@@ -19,7 +19,7 @@ function LoginPage() {
 
     try {
       const response = await axios.post(
-        "https://yumyum-frontend.pages.dev/users/auth/",
+        "https://yumyum-backend-48405822bc43.herokuapp.com/users/auth/",
         {
           phone_number,
           password,
