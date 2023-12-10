@@ -1,6 +1,8 @@
 import React from 'react';
 import './home.css';
 import GPS from './images/GPS.png';
+import ComuIcon from './images/thread.png';
+import MypageIcon from './images/mypage.png';
 
 const HomePage = () => {
   return (
@@ -10,12 +12,15 @@ const HomePage = () => {
                 <div className="searchbar">
                     <input id="searchkey" type="text" placeholder="검색할 음식을 입력해주십시오" />
                 </div>
-                <div className="e403_14">
-                <div className="e403_7">
+                <div className="iconbox">
+                <div className="searchbutton">
                     <div className="e313_8"></div>
                 </div>
-                <div className="e403_5">
-                    <div className="e313_11"></div>
+                <div className="mypagebutton">
+                    <img className="buttonform" src={ComuIcon} alt="CommuLogo" />
+                </div>
+                <div className="mypagebutton">
+                    <img className="buttonform" src={MypageIcon} alt="CommuLogo" />
                 </div>
                 </div>
             </div >
