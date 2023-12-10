@@ -18,10 +18,13 @@ function LoginPage() {
     }
 
     try {
-      const response = await axios.post("/users/auth/", {
-        phone_number,
-        password,
-      });
+      const response = await axios.post(
+        "https://yumyum-frontend.pages.dev/users/auth/",
+        {
+          phone_number,
+          password,
+        }
+      );
       const { access, data } = response.data;
       const accessToken = data.token.access;
 
