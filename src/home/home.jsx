@@ -1,7 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 const MapComponent = () => {
   const [map, setMap] = useState(null);
+
+  // useCallback을 사용하여 의존성 배열이 변하지 않도록 함
+  const handleNoGeolocation = useCallback((map) => {
+    const locPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
+    const message = "geolocation 사용이 허용되지 않았습니다.";
+    displayMarker(map, locPosition, message);
+  }, []);
 
   useEffect(() => {
     const mapContainer = document.getElementById("map");
@@ -25,6 +32,7 @@ const MapComponent = () => {
         },
         (error) => {
           console.error(error.message);
+          // useCallback으로 감싸진 함수를 호출
           handleNoGeolocation(newMap);
         }
       );
@@ -44,9 +52,10 @@ const MapComponent = () => {
       // Cleanup watchPosition on component unmount
       return () => navigator.geolocation.clearWatch(watchId);
     } else {
+      // useCallback으로 감싸진 함수를 호출
       handleNoGeolocation(newMap);
     }
-  }, []); // Empty dependency array to run the effect only once
+  }, [handleNoGeolocation]); // handleNoGeolocation 함수를 의존성 배열에 추가
 
   const displayMarker = (map, locPosition, message) => {
     const marker = new window.kakao.maps.Marker({
@@ -67,12 +76,6 @@ const MapComponent = () => {
     if (map) {
       map.panTo(locPosition);
     }
-  };
-
-  const handleNoGeolocation = (map) => {
-    const locPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
-    const message = "geolocation 사용이 허용되지 않았습니다.";
-    displayMarker(map, locPosition, message);
   };
 
   const handleCenterMap = () => {
