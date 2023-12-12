@@ -18,7 +18,7 @@ function LoginPage() {
     }
 
     try {
-      const response = await axios.post("/users/auth/", {
+      const response = await axios.post(`/users/auth/`, {
         phone_number,
         password,
       });
