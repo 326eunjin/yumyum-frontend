@@ -5,7 +5,7 @@ module.exports = function (app) {
   app.use(
     "/admin",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com",
       changeOrigin: true,
     })
   );
@@ -14,7 +14,7 @@ module.exports = function (app) {
   app.use(
     "/users",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com",
       changeOrigin: true,
     })
   );
@@ -23,7 +23,7 @@ module.exports = function (app) {
   app.use(
     "/reviews",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com",
       changeOrigin: true,
     })
   );
@@ -32,27 +32,34 @@ module.exports = function (app) {
   app.use(
     "/restaurants",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com",
       changeOrigin: true,
     })
   );
 
-  // Add more proxy rules for other Django endpoints as needed
-
-  // Proxy for Django Swagger
+  // Proxy for Django swagger
   app.use(
-    /^\/swagger(\/.*)?$/,
+    "/swagger",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com",
       changeOrigin: true,
     })
   );
 
-  // Proxy for Django Redoc
+  // Proxy for Django redoc
   app.use(
     "/redoc",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com",
+      changeOrigin: true,
+    })
+  );
+
+  // Proxy for Django schema
+  app.use(
+    "/schema",
+    createProxyMiddleware({
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com",
       changeOrigin: true,
     })
   );
