@@ -82,7 +82,7 @@ const LocationTracker = () => {
       const { latitude, longitude } = geolocationInfo;
 
       // Your API endpoint in Django
-      const apiUrl = `/restaurants/nearby?latitude=${latitude}&longitude=${longitude}`;
+      const apiUrl = `https://yumyum-backend-48405822bc43.herokuapp.com/restaurants/nearby?latitude=${latitude}&longitude=${longitude}`;
 
       // Make a POST request to your Django backend
       axios
