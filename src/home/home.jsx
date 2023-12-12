@@ -88,8 +88,8 @@ const LocationTracker = () => {
       axios
         .get(apiUrl, {
           headers: {
-            'content-type': 'application/json',
-            'access-control-allow-origin': '*',
+            "content-type": "application/json; charset=utf-8",
+            "access-control-allow-origin": "*",
           }
         })
         .then((response) => {
