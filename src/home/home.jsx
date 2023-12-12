@@ -86,7 +86,12 @@ const LocationTracker = () => {
 
       // Make a POST request to your Django backend
       axios
-        .get(apiUrl)
+        .get(apiUrl, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          }
+        })
         .then((response) => {
           console.log("Location data sent successfully:", response.data);
         })
