@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import axios from "axios";
+import httpsAdapter from "axios-https-proxy-fix";
+
+axios.defaults.adapter = httpsAdapter;
 
 const useGeolocation = () => {
   const watchId = useRef(null);
@@ -90,7 +93,7 @@ const LocationTracker = () => {
           headers: {
             "content-type": "application/json",
             "access-control-allow-origin": "*",
-          }
+          },
         })
         .then((response) => {
           console.log("Location data sent successfully:", response);
