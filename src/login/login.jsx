@@ -18,13 +18,10 @@ function LoginPage() {
     }
 
     try {
-      const response = await axios.post(
-        "https://yumyum-backend-48405822bc43.herokuapp.com/users/auth/",
-        {
-          phone_number,
-          password,
-        }
-      );
+      const response = await axios.post("/users/auth/", {
+        phone_number,
+        password,
+      });
       const { data } = response.data;
       const accessToken = data.token.access;
 
