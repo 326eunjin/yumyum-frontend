@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import axios from "axios";
+// import axios from "axios";
+import instance from "./axios";
 
 const useGeolocation = () => {
   const watchId = useRef(null);
@@ -85,7 +86,7 @@ const LocationTracker = () => {
       const apiUrl = `/restaurants/nearby?latitude=${latitude}&longitude=${longitude}`;
 
       // Make a POST request to your Django backend
-      axios
+      instance
         .get(apiUrl, {
           responseType: "json",
           headers: {
