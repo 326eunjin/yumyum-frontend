@@ -5,7 +5,7 @@ module.exports = function (app) {
   app.use(
     "/admin",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com/",
       changeOrigin: true,
     })
   );
@@ -14,7 +14,7 @@ module.exports = function (app) {
   app.use(
     "/users",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com/",
       changeOrigin: true,
     })
   );
@@ -23,7 +23,7 @@ module.exports = function (app) {
   app.use(
     "/reviews",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com/",
       changeOrigin: true,
     })
   );
@@ -32,7 +32,7 @@ module.exports = function (app) {
   app.use(
     "/restaurants",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com/",
       changeOrigin: true,
     })
   );
@@ -43,7 +43,7 @@ module.exports = function (app) {
   app.use(
     /^\/swagger(\/.*)?$/,
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com/",
       changeOrigin: true,
     })
   );
@@ -52,7 +52,7 @@ module.exports = function (app) {
   app.use(
     "/redoc",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "https://yumyum-backend-48405822bc43.herokuapp.com/",
       changeOrigin: true,
     })
   );
