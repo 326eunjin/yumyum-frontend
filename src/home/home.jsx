@@ -93,7 +93,7 @@ const LocationTracker = () => {
           }
         })
         .then((response) => {
-          console.log("Location data sent successfully:", response.data);
+          console.log("Location data sent successfully:", response);
         })
         .catch((error) => {
           console.error("Error sending location data:", error);
