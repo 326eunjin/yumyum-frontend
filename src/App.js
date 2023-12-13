@@ -1,17 +1,18 @@
-import React from "react";
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
-import logo from "./logo.svg";
-import "./App.css";
-import LoginPage from "./login/login";
-import LoadingPage from "./loading/loading";
-import MyPage from "./mypage/mypage";
-import SignUpPage from "./Signup/signup";
-import HomePage from "./home/test";
-import NewReview from "./newreview/newreview";
-import Book from "./book/book";
-import ReviewManage from "./reviewmanage/reviewmanage";
-import RestaurantPage from "./restaurantsearch/restaurantsearch";
-import Temp from "./temp/temp";
+import React from 'react';
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import logo from './logo.svg';
+import './App.css';
+import LoginPage from './login/login';  
+import LoadingPage from './loading/loading';
+import MyPage from './mypage/mypage';
+import SignUpPage from './Signup/signup';
+import HomePage from './home/home';
+import NewReview from './newreview/newreview';
+import Book from './book/book';
+import ReviewManage from './reviewmanage/reviewmanage';
+import RestaurantPage from './restaurantsearch/restaurantsearch';
+import Thread from './thread/thread'
+import Alterrestaurant from './alterrestaurant/alterrestaurant';
 
 function App() {
   return (
@@ -26,35 +27,9 @@ function App() {
         <Route path="/book" element={<Book />} />
         <Route path="/reviewmanage" element={<ReviewManage />} />
         <Route path="/restaurantsearch" element={<RestaurantPage />} />
-        <Route path="/temp" element={<Temp />} />
-        <Route
-          path="/*"
-          element={
-            <div className="App">
-              <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                  Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <Link to="/loading">
-                  <button className="App-link" type="button">
-                    Go to loading
-                  </button>
-                </Link>
-                <Link to="/login">
-                  <button className="App-link" type="button">
-                    Go to Login
-                  </button>
-                </Link>
-                <Link to="/myPage">
-                  <button className="App-link" type="button">
-                    Go to myPage
-                  </button>
-                </Link>
-              </header>
-            </div>
-          }
-        />
+        <Route path="/thread" element={<Thread />} />
+        <Route path='/alterrestaurant' element={<Alterrestaurant />} />
+        <Route path="/*" element={<LoadingPage />} />
       </Routes>
     </Router>
   );
