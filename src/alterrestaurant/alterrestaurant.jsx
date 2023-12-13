@@ -6,13 +6,21 @@ const ThreadItem = ({ thread, onCancelReservation, onMenuBrowse }) => {
 
     let keywordbox = ['#기타', '#한식', '#일식', '#중식', '양식', '#술집', '#패스트푸드', '#인스턴트', '#카페'];
 
+    const getOpeningHoursText = () => {
+        if (thread.is_24_hours === true) {
+            return "영업 시간: 24시간 운영";
+        } else {
+            return `영업 시간: ${thread.start_time} - ${thread.end_time}`;
+        }
+    };
+
     return (
         <div className="altertotalcontainer">
             <div className="alterblockcontainer">
-            <span className="alterblockrestaurantname">{thread.name}</span>
+                <span className="alterblockrestaurantname">{thread.name}</span>
                 <div className="category-container">
                     {category.map((cat, index) => {
-                        const categoryIndex = Math.min((cat/100), keywordbox.length - 1);
+                        const categoryIndex = Math.min((cat / 100), keywordbox.length - 1);
                         return (
                             <span key={index} className="alterblockrestaurantkeyword">
                                 {keywordbox[categoryIndex]}
@@ -21,16 +29,14 @@ const ThreadItem = ({ thread, onCancelReservation, onMenuBrowse }) => {
                     })}
                 </div>
                 <span className="alterblockrestaurantopeninghour">
-                    {thread.is_24_hours === true
-                        ? "영업 시간: 24시간 운영"
-                        : `영업 시간: ${thread.start_time} - ${thread.end_time}`
-                    }
+                    {getOpeningHoursText()}
                 </span>
                 <span className="alterblockrestaurantcomment">현재 위치에서 {thread.distance}</span>
             </div>
         </div>
     );
 };
+
 
 const ThreadList = ({ threads, onCancelReservation, onMenuBrowse }) => {
     return (
