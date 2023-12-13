@@ -2,6 +2,7 @@ import React from 'react';
 import './alterrestaurant.css';
 
 const ThreadItem = ({ thread, onCancelReservation, onMenuBrowse }) => {
+    let category = thread.category;
 
     let keywordbox = ['#기타', '#한식', '#일식', '#중식', '양식', '#술집', '#패스트푸드', '#인스턴트', '#카페'];
 
