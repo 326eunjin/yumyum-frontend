@@ -1,151 +1,162 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
-// import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 import instance from "./axios";
 
-const useGeolocation = () => {
-  const watchId = useRef(null);
-
-  const [geolocationInfo, setGeolocationInfo] = useState({
-    isLoaded: false,
-    error: null,
-    latitude: null,
-    longitude: null,
+const YourComponent = () => {
+  const [state, setState] = useState({
+    center: { lat: 37.4946567, lng: 126.9062257 },
+    errMsg: null,
+    isLoading: true,
+    GuitarPositions: [], // 0
+    KoreanPositions: [], // 100
+    JapanesePositions: [], // 200
+    ChinesePositions: [], // 300
+    WesternPositions: [], //400
+    BarPositions: [],
+    FastPositions: [],
+    InstantPositions: [],
+    CafePositions: [], // 800
   });
 
-  const clearWatch = useCallback(() => {
-    if (watchId.current) {
-      navigator.geolocation.clearWatch(watchId.current);
-      watchId.current = null;
-    }
-  }, [watchId]);
+  const [fetchedData, setFetchedData] = useState(false); // 플래그 변수
 
   useEffect(() => {
-    const options = {
-      enableHighAccuracy: false,
-      maximumAge: Infinity,
-      timeout: 100000,
-    };
-
-    const onEventSuccess = ({ coords }) => {
-      const { latitude, longitude } = coords;
-      setGeolocationInfo((prev) => ({
-        ...prev,
-        isLoaded: true,
-        latitude,
-        longitude,
-      }));
-    };
-
-    const onEventError = (error) => {
-      setGeolocationInfo((prev) => ({
-        ...prev,
-        error,
-      }));
-    };
-
-    if (!navigator.geolocation) return;
-
-    watchId.current = navigator.geolocation.watchPosition(
-      onEventSuccess,
-      onEventError,
-      options
-    );
-
-    return () => {
-      clearWatch();
-    };
-  }, [clearWatch]);
-
-  return geolocationInfo;
-};
-
-const LocationTracker = () => {
-  const geolocationInfo = useGeolocation();
-  const mapContainerRef = useRef(null);
-  const kakaoMap = useRef(null);
-
-  useEffect(() => {
-    if (!kakaoMap.current) {
-      // Initialize the map only if it doesn't exist
-      const mapOption = {
-        center: new window.kakao.maps.LatLng(33.450701, 126.570667),
-        level: 2,
+    const handleGeoLocation = (position) => {
+      const newCenter = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
       };
-      kakaoMap.current = new window.kakao.maps.Map(
-        mapContainerRef.current,
-        mapOption
-      );
-    }
-  }, []);
 
-  useEffect(() => {
-    if (geolocationInfo.isLoaded && kakaoMap.current) {
-      const { latitude, longitude } = geolocationInfo;
+      setState((prev) => ({ ...prev, center: newCenter, isLoading: false }));
 
-      // Your API endpoint in Django
-      const apiUrl = `/restaurants/nearby?latitude=${latitude}&longitude=${longitude}`;
+      // Log the updated coordinates to the console
+      console.log("Latitude:", newCenter.lat);
+      console.log("Longitude:", newCenter.lng);
 
-      // Make a POST request to your Django backend
-      instance
-        .get(apiUrl, {
-          responseType: "json",
-          headers: {
-            "Content-Type": "application/json;charset=UTF-8",
-          },
-        })
-        .then((response) => {
-          console.log("Location data sent successfully:", response.data);
-        })
-        .catch((error) => {
-          console.error("Error sending location data:", error);
-        });
-
-      var imageSrc =
-          "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png", // 마커이미지의 주소입니다
-        imageSize = new window.kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-        imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-
-      // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-      var markerImage = new window.kakao.maps.MarkerImage(
-        imageSrc,
-        imageSize,
-        imageOption
-      );
-      const locPosition = new window.kakao.maps.LatLng(latitude, longitude); // 마커가 표시될 위치입니다
-      if (!kakaoMap.current.marker) {
-        const marker = new window.kakao.maps.Marker({
-          position: locPosition,
-          image: markerImage,
-          map: kakaoMap.current,
-        });
-        kakaoMap.current.marker = marker;
-      } else {
-        kakaoMap.current.marker.setPosition(locPosition);
+      if (!fetchedData) {
+        fetchData();
+        setFetchedData(true);
       }
+    };
 
-      kakaoMap.current.setCenter(locPosition);
+    const handleGeoLocationError = (err) => {
+      setState((prev) => ({ ...prev, errMsg: err.message, isLoading: false }));
+    };
+
+    if (navigator.geolocation) {
+      const watchId = navigator.geolocation.watchPosition(
+        handleGeoLocation,
+        handleGeoLocationError
+      );
+
+      // Clean up the watchPosition when the component unmounts
+      return () => navigator.geolocation.clearWatch(watchId);
+    } else {
+      setState((prev) => ({
+        ...prev,
+        errMsg: "Geolocation is not supported.",
+        isLoading: false,
+      }));
     }
-  }, [geolocationInfo]);
+  }, [fetchedData]);
+
+  const fetchData = async () => {
+    const categories = [0, 100, 200, 300, 400, 500, 600, 700, 800];
+
+    try {
+      const promises = categories.map(async (category) => {
+        const response = await instance.get(
+          `/restaurants/all/?category=${category}`
+        );
+        return response.data.restaurants;
+      });
+
+      const results = await Promise.all(promises);
+
+      setState((prev) => ({
+        ...prev,
+        GuitarPositions: results[0] || [],
+        KoreanPositions: results[1] || [],
+        JapanesePositions: results[2] || [],
+        ChinesePositions: results[3] || [],
+        WesternPositions: results[4] || [],
+        BarPositions: results[5] || [],
+        FastPositions: results[6] || [],
+        InstantPositions: results[7] || [],
+        CafePositions: results[8] || [],
+        isLoading: false,
+      }));
+    } catch (error) {
+      console.error("위치를 가져오는 중 에러 발생:", error);
+      setState((prev) => ({
+        ...prev,
+        errMsg: "위치를 가져오는 중 에러 발생",
+        isLoading: false,
+      }));
+    }
+  };
+
+  const imageSize = { width: 32, height: 36 };
+
+  const renderMarkers = (positions, markerImageSrc) =>
+    positions.map((position) => (
+      <MapMarker
+        key={`${position.lat},${position.lng}`}
+        position={position}
+        image={{
+          src: markerImageSrc,
+          size: imageSize,
+        }}
+      />
+    ));
 
   return (
-    <div>
-      <h2>실시간 위치 추적기</h2>
-      <div ref={mapContainerRef} style={{ width: "100%", height: "100vh" }} />
-      {geolocationInfo.isLoaded ? (
-        <div>
-          <p>위도: {geolocationInfo.latitude}</p>
-          <p>경도: {geolocationInfo.longitude}</p>
-        </div>
-      ) : (
-        <p>위치 로딩 중...</p>
+    <Map
+      center={state.center}
+      style={{
+        width: "100%",
+        height: "100vh",
+      }}
+      level={1}
+    >
+      {!state.isLoading && (
+        <>
+          <MapMarker position={state.center}>
+            <div style={{ padding: "5px", color: "#000" }}>
+              {state.errMsg ? state.errMsg : "Are you here?"}
+            </div>
+          </MapMarker>
+          {Array.isArray(state.GuitarPositions) &&
+            renderMarkers(state.GuitarPositions, "/images/category_Guitar.png")}
+          {Array.isArray(state.KoreanPositions) &&
+            renderMarkers(state.KoreanPositions, "/images/category_Korea.png")}
+          {Array.isArray(state.ChinesePositions) &&
+            renderMarkers(state.ChinesePositions, "/images/category_China.png")}
+          {Array.isArray(state.JapanesePositions) &&
+            renderMarkers(
+              state.JapanesePositions,
+              "/images/category_Japan.png"
+            )}
+          {Array.isArray(state.WesternPositions) &&
+            renderMarkers(
+              state.WesternPositions,
+              "/images/category_Western.png"
+            )}
+          {Array.isArray(state.BarPositions) &&
+            renderMarkers(state.BarPositions, "/images/category_Beer.png")}
+          {Array.isArray(state.FastPositions) &&
+            renderMarkers(state.FastPositions, "/images/category_FastFood.png")}
+          {Array.isArray(state.InstantPositions) &&
+            renderMarkers(
+              state.InstantPositions,
+              "/images/category_Instant.png"
+            )}
+          {Array.isArray(state.CafePositions) &&
+            renderMarkers(state.CafePositions, "/images/category_Cafe.png")}
+        </>
       )}
-      {geolocationInfo.error && (
-        <p>
-          위치 정보를 가져오는 동안 오류 발생: {geolocationInfo.error.message}
-        </p>
-      )}
-    </div>
+    </Map>
   );
 };
 
-export default LocationTracker;
+export default YourComponent;
