@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import CategoryMarkerStyle from "./category";
-import LocationTracker from "./home";
-
 const MapComponent = () => {
   // 마커이미지의 주소입니다. 스프라이트 이미지 입니다
   const markerImageSrc =
