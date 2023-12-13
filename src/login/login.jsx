@@ -32,7 +32,7 @@ function LoginPage() {
         localStorage.setItem("token", accessToken);
 
         // Navigate to the protected route or perform other actions
-        navigate("/");
+        navigate("/mypage");
       } else {
         alert(`Login failed. ${data.error}`);
       }
