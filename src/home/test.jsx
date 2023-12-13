@@ -52,6 +52,10 @@ function YourComponent() {
 
   return (
     <>
+      <div>
+        <p id="latitude">Latitude: {state.center.lat}</p>
+        <p id="longitude">Longitude: {state.center.lng}</p>
+      </div>
       <Map
         center={state.center}
         style={{
