@@ -21,7 +21,7 @@ const ThreadItem = ({ thread, onCancelReservation, onMenuBrowse }) => {
                     })}
                 </div>
                 <span className="alterblockrestaurantopeninghour">
-                    {thread.is_24_hours == true
+                    {thread.is_24_hours === true
                         ? "영업 시간: 24시간 운영"
                         : `영업 시간: ${thread.start_time} - ${thread.end_time}`
                     }
