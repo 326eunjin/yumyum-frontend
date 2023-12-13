@@ -1,16 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
-import LoginPage from './login/login';  
-import LoadingPage from './loading/loading';
-import MyPage from './mypage/mypage';
-import SignUpPage from './Signup/signup';
-import HomePage from './home/home';
-import NewReview from './newreview/newreview';
-import Book from './book/book';
-import ReviewManage from './reviewmanage/reviewmanage';
-import RestaurantPage from './restaurantsearch/restaurantsearch';
+import React from "react";
+import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import logo from "./logo.svg";
+import "./App.css";
+import LoginPage from "./login/login";
+import LoadingPage from "./loading/loading";
+import MyPage from "./mypage/mypage";
+import SignUpPage from "./Signup/signup";
+import HomePage from "./home/test";
+import NewReview from "./newreview/newreview";
+import Book from "./book/book";
+import ReviewManage from "./reviewmanage/reviewmanage";
+import RestaurantPage from "./restaurantsearch/restaurantsearch";
+import Temp from "./temp/temp";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/book" element={<Book />} />
         <Route path="/reviewmanage" element={<ReviewManage />} />
         <Route path="/restaurantsearch" element={<RestaurantPage />} />
+        <Route path="/temp" element={<Temp />} />
         <Route
           path="/*"
           element={
