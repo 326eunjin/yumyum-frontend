@@ -83,7 +83,7 @@
 	font-size:20px;
 	letter-spacing:0;
 	align-self: center;
-	margin-top: 5%;
+	margin-top: 15%;
 	margin-bottom: 10px;
 }
 
@@ -110,7 +110,6 @@
 
 .restarantmenulist{
 	width: 80%;
-	height: 200px;
 	position: relative;
 	align-self: center;
 	background-color:rgba(255, 255, 255, 1);
@@ -119,7 +118,6 @@
 	border-bottom-left-radius:10px;
 	border-bottom-right-radius:10px;
 	border:2px solid rgba(0, 0, 0, 1);
-	margin-bottom: 20px;
 	display: flex;
 	flex-direction: column;
 }
@@ -134,7 +132,18 @@
 	letter-spacing:0;
 	margin-left: 10%;
 	margin-top: 30px;
-	margin-bottom: 20px;
+}
+
+.restaurantcontextcomment { 
+	color:rgba(0, 0, 0, 1);
+	width:80%;
+	position:relative;
+	font-family:Inter;
+	text-align:left;
+	font-size:15px;
+	letter-spacing:0;
+	margin-left: 10%;
+
 }
 
 .restaurantwaitingtag1 { 
@@ -171,7 +180,7 @@
 	font-size:15px;
 	letter-spacing:0;
 	margin-left: 10%;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .showallmenubutton{
@@ -184,6 +193,7 @@
 	border-bottom-right-radius:10px;
 	font-size: 10px;
 	align-self: center;
+	margin-top: 10px;
 	margin-bottom: 10px;
 	background-color:rgba(255, 255, 255, 1);
 }
