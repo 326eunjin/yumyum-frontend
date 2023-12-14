@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Map, MapMarker, useMap } from "react-kakao-maps-sdk";
 import instance from "./axios";
+import "./home.css";
 
 const Marker = ({ position, markerImageSrc }) => {
   const map = useMap();
@@ -36,7 +37,7 @@ const Marker = ({ position, markerImageSrc }) => {
       {isVisible && (
         <div>
           {restaurantData ? (
-            <div>
+            <div id="resInfo">
               <h2>{restaurantData.data.name}</h2>
               <p>{restaurantData.data.address}</p>
               <p>"대기 예약 : {restaurantData.data.waiting}"</p>
@@ -183,6 +184,41 @@ const YourComponent = () => {
           {/* Repeat the pattern for other categories */}
         </>
       )}
+      <div className="e294_42">
+        <div className="e403_16">
+          <div className="searchbar">
+            <input
+              id="searchkey"
+              type="text"
+              placeholder="검색할 음식을 입력해주십시오"
+            />
+          </div>
+          <div className="iconbox">
+            <div className="searchbutton">
+              <div className="e313_8"></div>
+            </div>
+            <div className="mypagebutton">
+              <img
+                className="buttonform"
+                src="/images/thread.png"
+                alt="CommuLogo"
+              />
+            </div>
+            <div className="mypagebutton">
+              <img
+                className="buttonform"
+                src="/images/mypage.png"
+                alt="CommuLogo"
+              />
+            </div>
+          </div>
+        </div>
+        <div id="bottombutton">
+          <button className="GPSButton">
+            <img id="logo" src="/images/GPS.png" alt="Logo" />
+          </button>
+        </div>
+      </div>
     </Map>
   );
 };
