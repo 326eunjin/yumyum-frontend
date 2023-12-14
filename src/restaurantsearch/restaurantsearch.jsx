@@ -105,8 +105,8 @@ const RestaurantPage = () => {
         .then(response => {
             console.log(response.data.restaurants);
             setrestaurantlist(response.data.restaurants);
-            console.log(restaurantlist);
-        })
+            sle
+          })
         .catch(error => {
             console.error('Error fetching data:', error);
         });
