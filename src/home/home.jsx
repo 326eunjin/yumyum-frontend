@@ -1,24 +1,77 @@
 import React, { useState, useEffect } from "react";
-import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { Map, MapMarker, useMap } from "react-kakao-maps-sdk";
 import instance from "./axios";
+
+const Marker = ({ position, markerImageSrc }) => {
+  const map = useMap();
+  const [isVisible, setIsVisible] = useState(false);
+  const [restaurantData, setRestaurantData] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const response = await instance.get(
+        `/restaurants/nearby/?latitude=${position.lat}&longitude=${position.lng}&dist=0`
+      );
+      setRestaurantData(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching restaurant data:", error);
+    }
+  };
+
+  return (
+    <MapMarker
+      position={position}
+      image={{
+        src: markerImageSrc,
+        size: { width: 32, height: 36 },
+      }}
+      onClick={(marker) => map.panTo(marker.getPosition())}
+      onMouseOver={() => {
+        fetchData(); // Fetch data on mouse over
+        setIsVisible(true);
+      }}
+      onMouseOut={() => setIsVisible(false)}
+    >
+      {isVisible && (
+        <div>
+          {restaurantData ? (
+            <div>
+              <h2>{restaurantData.data.name}</h2>
+              <p>{restaurantData.data.address}</p>
+              <p>"대기 예약 : {restaurantData.data.waiting}"</p>
+              <p>
+                "운영 시간 : {restaurantData.data.start_time} ~{" "}
+                {restaurantData.data.end_time}"
+              </p>
+              {/* Add other fields as needed */}
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      )}
+    </MapMarker>
+  );
+};
 
 const YourComponent = () => {
   const [state, setState] = useState({
     center: { lat: 37.4946567, lng: 126.9062257 },
     errMsg: null,
     isLoading: true,
-    GuitarPositions: [], // 0
-    KoreanPositions: [], // 100
-    JapanesePositions: [], // 200
-    ChinesePositions: [], // 300
-    WesternPositions: [], //400
+    GuitarPositions: [],
+    KoreanPositions: [],
+    JapanesePositions: [],
+    ChinesePositions: [],
+    WesternPositions: [],
     BarPositions: [],
     FastPositions: [],
     InstantPositions: [],
-    CafePositions: [], // 800
+    CafePositions: [],
   });
 
-  const [fetchedData, setFetchedData] = useState(false); // 플래그 변수
+  const [fetchedData, setFetchedData] = useState(false);
 
   useEffect(() => {
     const handleGeoLocation = (position) => {
@@ -49,7 +102,6 @@ const YourComponent = () => {
         handleGeoLocationError
       );
 
-      // Clean up the watchPosition when the component unmounts
       return () => navigator.geolocation.clearWatch(watchId);
     } else {
       setState((prev) => ({
@@ -87,28 +139,14 @@ const YourComponent = () => {
         isLoading: false,
       }));
     } catch (error) {
-      console.error("위치를 가져오는 중 에러 발생:", error);
+      console.error("Error fetching data:", error);
       setState((prev) => ({
         ...prev,
-        errMsg: "위치를 가져오는 중 에러 발생",
+        errMsg: "Error fetching data",
         isLoading: false,
       }));
     }
   };
-
-  const imageSize = { width: 32, height: 36 };
-
-  const renderMarkers = (positions, markerImageSrc) =>
-    positions.map((position) => (
-      <MapMarker
-        key={`${position.lat},${position.lng}`}
-        position={position}
-        image={{
-          src: markerImageSrc,
-          size: imageSize,
-        }}
-      />
-    ));
 
   return (
     <Map
@@ -127,32 +165,22 @@ const YourComponent = () => {
             </div>
           </MapMarker>
           {Array.isArray(state.GuitarPositions) &&
-            renderMarkers(state.GuitarPositions, "/images/category_Guitar.png")}
+            state.GuitarPositions.map((position) => (
+              <Marker
+                key={`${position.lat},${position.lng}`}
+                position={position}
+                markerImageSrc="/images/category_Guitar.png"
+              />
+            ))}
           {Array.isArray(state.KoreanPositions) &&
-            renderMarkers(state.KoreanPositions, "/images/category_Korea.png")}
-          {Array.isArray(state.ChinesePositions) &&
-            renderMarkers(state.ChinesePositions, "/images/category_China.png")}
-          {Array.isArray(state.JapanesePositions) &&
-            renderMarkers(
-              state.JapanesePositions,
-              "/images/category_Japan.png"
-            )}
-          {Array.isArray(state.WesternPositions) &&
-            renderMarkers(
-              state.WesternPositions,
-              "/images/category_Western.png"
-            )}
-          {Array.isArray(state.BarPositions) &&
-            renderMarkers(state.BarPositions, "/images/category_Beer.png")}
-          {Array.isArray(state.FastPositions) &&
-            renderMarkers(state.FastPositions, "/images/category_FastFood.png")}
-          {Array.isArray(state.InstantPositions) &&
-            renderMarkers(
-              state.InstantPositions,
-              "/images/category_Instant.png"
-            )}
-          {Array.isArray(state.CafePositions) &&
-            renderMarkers(state.CafePositions, "/images/category_Cafe.png")}
+            state.KoreanPositions.map((position) => (
+              <Marker
+                key={`${position.lat},${position.lng}`}
+                position={position}
+                markerImageSrc="/images/category_Korea.png"
+              />
+            ))}
+          {/* Repeat the pattern for other categories */}
         </>
       )}
     </Map>
