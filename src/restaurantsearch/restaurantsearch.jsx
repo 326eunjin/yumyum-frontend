@@ -119,15 +119,10 @@ const RestaurantPage = () => {
 
     // Fetch data from the server using axios
     instance
-      .get("/restaurants/filtered", {
-        params: {
-          latitude: 37.50726305,
-          longitude: 126.9599876,
-        },
-        })
+      .get("/restaurants/filtered/?latitude=37.50726305&longitude=126.9599876")
         .then(response => {
             console.log(response.data.restaurants);
-            setrestaurantlist(response.data.restaurants);
+            setrestaurantlist(restaurantlist, response.data.restaurants);
             console.log(restaurantlist);
         })
         .catch(error => {
