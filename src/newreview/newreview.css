@@ -60,7 +60,6 @@
 
 .nametag { 
 	color:rgba(0, 0, 0, 1);
-	width:112px;
 	height:22px;
 	position:absolute;
 	font-family:Inter;
@@ -68,6 +67,18 @@
 	font-size:18px;
 	letter-spacing:0;
 	margin-left: 7.5%;
+}
+
+.realname{
+	width : 60%;
+	height:22px;
+	position:absolute;
+	font-family:Inter;
+	text-align:center;
+	font-size:18px;
+	letter-spacing:0;
+	right : 0px;
+	margin-right: 5%;
 }
 
 .scorecontainer { 
@@ -98,6 +109,20 @@
 	margin-left: 7.5%;
 }
 
+.inputstars { 
+	color:rgba(0, 0, 0, 1);
+	width:60%;
+	height:21px;
+	position:absolute;
+	font-family:Inter;
+	text-align:center;
+	font-size:18px;
+	letter-spacing:0;
+	right: 0px;
+	border:0px solid rgba(0, 0, 0, 1);
+	margin-right: 5%;
+}
+
 .menucontainer { 
 	background-color:rgba(255, 255, 255, 1);
 	width:89%;
@@ -126,6 +151,20 @@
 	margin-left: 7.5%;
 }
 
+.inputmenu { 
+	color:rgba(0, 0, 0, 1);
+	width:60%;
+	height:21px;
+	position:absolute;
+	font-family:Inter;
+	text-align:center;
+	font-size:18px;
+	letter-spacing:0;
+	margin-right: 5%;
+	right: 0px;
+	border:0px solid rgba(0, 0, 0, 1);
+}
+
 .textcontainer { 
 	background-color:rgba(255, 255, 255, 1);
 	width:89%;
@@ -151,6 +190,20 @@
 	letter-spacing:0;
 	margin-top: 7.5%;
 	margin-left: 7.5%;
+}
+
+.inputcontents{
+	color:rgba(0, 0, 0, 1);
+	width:85%;
+	height:40%;
+	position:absolute;
+	font-family:Inter;
+	text-align:left;
+	font-size:18px;
+	letter-spacing:0;
+	top : 40%;
+	left:7.5%;
+	border:0px solid rgba(0, 0, 0, 1);
 }
 
 .reviewphotocontainer { 

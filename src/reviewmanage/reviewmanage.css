@@ -32,13 +32,17 @@
 }
 
 .photocontainer{
-	width: 80%;
+	width: 90%;
 	height: 150px;
 	background-color:rgba(255, 255, 255, 1);
 	position: relative;
 	display: flex;
-	align-content: center;
 	justify-content: center;
+}
+
+.photocontentempty {
+	justify-content: center;
+	align-self: center;
 }
 
 .reviewmanagebottom {
