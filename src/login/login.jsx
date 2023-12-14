@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import mainlogo from "./logo.png";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import instance from "../home/axios";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function LoginPage() {
     }
 
     try {
-      const response = await axios.post(`/users/auth/`, {
+      const response = await instance.post(`/users/auth/`, {
         phone_number,
         password,
       });
