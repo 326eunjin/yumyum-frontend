@@ -1,5 +1,6 @@
 import React from 'react';
 import './alterrestaurant.css';
+import { useNavigate } from "react-router-dom";
 
 const ThreadItem = ({ thread, onCancelReservation, onMenuBrowse }) => {
     let category = thread.category;
@@ -48,7 +49,13 @@ const ThreadList = ({ threads, onCancelReservation, onMenuBrowse }) => {
     );
 };
 
-const alterrestaurant = () => {
+const Alterrestaurant = () => {
+    const navigate = useNavigate();
+
+    function gotohome() {
+        navigate('/home');
+    }
+
     const reviews = [
         {
             restaurant_id : 123,
@@ -113,10 +120,10 @@ const alterrestaurant = () => {
                 <ThreadList threads={reviews} onCancelReservation={handleCancelReservation} onMenuBrowse={handleMenuBrowse} />
             </div>
             <div className="alterbottom">
-                <button className="alterbackbutton"> 홈으로 </button>
+                <button className="alterbackbutton" onClick={gotohome}> 홈으로 </button>
             </div>
         </div>
     );
 };
 
-export default alterrestaurant;
+export default Alterrestaurant;

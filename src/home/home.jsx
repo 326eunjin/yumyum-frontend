@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Map, MapMarker, useMap } from "react-kakao-maps-sdk";
 import instance from "./axios";
+import { useNavigate } from 'react-router-dom';
 import "./home.css";
 
 const Marker = ({ position, markerImageSrc }) => {
@@ -149,6 +150,20 @@ const YourComponent = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  function gotothread (){
+      navigate('/thread');
+  }
+
+  function gotomypage(){
+    navigate('/login');
+  }
+
+  function gotosearchpage(){
+    navigate('/restaurantsearch');
+  }
+
   return (
     <Map
       center={state.center}
@@ -194,17 +209,17 @@ const YourComponent = () => {
             />
           </div>
           <div className="iconbox">
-            <div className="searchbutton">
+            <div className="searchbutton" onClick={gotosearchpage}>
               <div className="e313_8"></div>
             </div>
-            <div className="mypagebutton">
+            <div className="mypagebutton" onClick={gotothread}>
               <img
                 className="buttonform"
                 src="/images/thread.png"
                 alt="CommuLogo"
               />
             </div>
-            <div className="mypagebutton">
+            <div className="mypagebutton" onClick={gotomypage}>
               <img
                 className="buttonform"
                 src="/images/mypage.png"

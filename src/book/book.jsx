@@ -11,7 +11,7 @@ const BookItem = ({ book, onCancelReservation, onMenuBrowse }) => {
       <span className="booknametag">{book.restaurant}</span>
       <span className="bookwaitingtag">현재 앞에 {book.position}팀 대기중</span>
       <button className="bookcancelbutton" onClick={() => onCancelReservation(book.restaurant)}>
-        예약 취소
+        예약 취소 요청
       </button>
       <button className="bookmenufindbutton" onClick={() => onMenuBrowse(book.rating)}>
         메뉴 둘러보기
