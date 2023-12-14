@@ -181,7 +181,63 @@ const YourComponent = () => {
                 markerImageSrc="/images/category_Korea.png"
               />
             ))}
-          {/* Repeat the pattern for other categories */}
+          {Array.isArray(state.JapanesePositions) &&
+            state.JapanesePositions.map((position) => (
+              <Marker
+                key={`${position.lat},${position.lng}`}
+                position={position}
+                markerImageSrc="/images/category_Japan.png"
+              />
+            ))}
+          {Array.isArray(state.ChinesePositions) &&
+            state.ChinesePositions.map((position) => (
+              <Marker
+                key={`${position.lat},${position.lng}`}
+                position={position}
+                markerImageSrc="/images/category_China.png"
+              />
+            ))}
+          {Array.isArray(state.WesternPositions) &&
+            state.WesternPositions.map((position) => (
+              <Marker
+                key={`${position.lat},${position.lng}`}
+                position={position}
+                markerImageSrc="/images/category_Western.png"
+              />
+            ))}
+
+          {Array.isArray(state.InstantPositions) &&
+            state.InstantPositions.map((position) => (
+              <Marker
+                key={`${position.lat},${position.lng}`}
+                position={position}
+                markerImageSrc="/images/category_Instant.png"
+              />
+            ))}
+          {Array.isArray(state.FastPositions) &&
+            state.FastPositions.map((position) => (
+              <Marker
+                key={`${position.lat},${position.lng}`}
+                position={position}
+                markerImageSrc="/images/category_FastFood.png"
+              />
+            ))}
+          {Array.isArray(state.BarPositions) &&
+            state.BarPositions.map((position) => (
+              <Marker
+                key={`${position.lat},${position.lng}`}
+                position={position}
+                markerImageSrc="/images/category_Beer.png"
+              />
+            ))}
+          {Array.isArray(state.CafePositions) &&
+            state.CafePositions.map((position) => (
+              <Marker
+                key={`${position.lat},${position.lng}`}
+                position={position}
+                markerImageSrc="/images/category_Cafe.png"
+              />
+            ))}
         </>
       )}
       <div className="e294_42">
