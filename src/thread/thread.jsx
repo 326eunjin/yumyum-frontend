@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './thread.css';
 import EmptyHeart from './images/emptyheart.png';
 import FilledHeart from './images/emptyheart.png';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ThreadItem = ({ thread, onCancelReservation, onMenuBrowse }) => {
     const [isLiked, setIsLiked] = useState(false);
@@ -49,56 +51,41 @@ const ThreadList = ({ threads, onCancelReservation, onMenuBrowse }) => {
 };
 
 const Thread = () => {
-    const reviews = [
-        {
-            restaurant_id : 1,
-            restaurant_name : "서브웨이 숭실대점",
-            user_id : 123,
-            user_name : "SSU_SW_박병찬",
-            category : 300,
-            stars : 4.1,
-            menu : "김치찌개",
-            contents : "음식이 친절하고, 사장님이 맛있어요",
-            created_at : "2023-10-04 12:30:00",
-            updated_at : "2023-10-04 12:35:00"
-        },
-        {
-            restaurant_id : 2,
-            restaurant_name : "황궁 숭실대점",
-            user_id : 456,
-            user_name : "SSU_SW_장은진",
-            category : 200,
-            stars : 4.3,
-            menu : "김치찌개",
-            contents : "짜장면 양이 많고, 사장님도 친절합니다. 음식도 빨리 나와서 좋아요",
-            created_at : "2023-10-04 12:30:00",
-            updated_at : "2023-10-04 12:35:00"
-        },
-        {
-            restaurant_id : 4,
-            restaurant_name : "은하수식당 숭실대점",
-            user_id : 112,
-            user_name : "SSU_SW_강재일",
-            category : 100,
-            stars : 3.7,
-            menu : "김치찌개",
-            contents : "돈까스 가성비가 좋아요. 근데 특색이 없어서 그냥 가끔 올듯",
-            created_at : "2023-10-04 12:30:00",
-            updated_at : "2023-10-04 12:35:00"
-        },
-        {
-            restaurant_id : 5,
-            restaurant_name : "맥도날드 숭실대점",
-            user_id : 113,
-            user_name : "SSU_MATH_정한수",
-            category : 100,
-            stars : 3.7,
-            menu : "김치찌개",
-            contents : "돈까스 가성비가 좋아요. 근데 특색이 없어서 그냥 가끔 올듯",
-            created_at : "2023-10-04 12:30:00",
-            updated_at : "2023-10-04 12:35:00"
-        },
-    ];
+
+    const navigate = useNavigate();
+
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+
+        const token = localStorage.getItem('token');  // Replace 'your_token_key' with the actual key used for the token
+
+        const instance = axios.create({
+            baseURL: "https://yumyum-backend-48405822bc43.herokuapp.com",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization" : `Bearer ${token}`,
+            },
+          })
+
+        // Fetch data from the server using axios
+        instance.get('/reviews/thread', {
+            params: {
+                latitude: 37.50726305,
+                longitude: 126.9599876,
+            },
+            })
+            .then(response => {
+                console.log(response.data.reviews);
+                setReviews(response.data.reviews);
+                console.log(reviews);
+                // Handle the response and update the state
+                
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, []); 
 
     const handleCancelReservation = (storeName) => {
         console.log(`예약이 취소된 가게: ${storeName}`);
@@ -110,13 +97,17 @@ const Thread = () => {
         // 여기에서 메뉴 둘러보기 로직을 추가할 수도 있습니다.
     };
 
+    function gotoback() {
+        navigate('/home');
+    }
+
     return (
         <div className="threadbackground">
             <div className="threadcontext">
                 <ThreadList threads={reviews} onCancelReservation={handleCancelReservation} onMenuBrowse={handleMenuBrowse} />
             </div>
             <div className="threadbottom">
-                <button className="threadbackbutton"> 홈으로 </button>
+                <button className="threadbackbutton"onClick={gotoback}> 홈으로 </button>
             </div>
         </div>
     );
